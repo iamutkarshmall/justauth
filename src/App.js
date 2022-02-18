@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Home from "./compnents/Home";
 import Signup from "./compnents/Signup";
 import Login from "./compnents/Login";
@@ -10,7 +10,6 @@ import axios from "axios";
 const App = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const user = useContext(Usercontext);
 
   useEffect(() => {
     axios
