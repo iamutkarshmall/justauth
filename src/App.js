@@ -20,7 +20,7 @@ const App = () => {
         setUsername(res.data.username);
         setEmail(res.data.email);
       });
-  }, [username, email]);
+  }, []);
 
   console.log("username ", username);
 
