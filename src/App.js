@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("https://basic-mern-authentication.herokuapp.com//user", {
+      .get("https://basic-mern-authentication.herokuapp.com/user", {
         withCredentials: true,
       })
       .then((res) => {
