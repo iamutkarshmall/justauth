@@ -61,10 +61,6 @@ const App = () => {
           {!!email && (
             <nav>
               <Link to="/">Home</Link>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <Link to="/signup">Signup</Link>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <Link to="/login">Login</Link>
             </nav>
           )}
           <br />
@@ -88,16 +84,8 @@ const App = () => {
                 )
               }
             />
-            <Route
-              exact
-              path="/signup"
-              element={!!email ? <h2>Already logged in </h2> : <Signup />}
-            />
-            <Route
-              exact
-              path="/login"
-              element={!!email ? <h2>Already logged in </h2> : <Login />}
-            />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
           </Routes>
         </Router>
       </Usercontext.Provider>
