@@ -11,9 +11,9 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
 
-  useEffect(() => {
+  useEffect(async () => {
     try {
-      axios
+      await axios
         .get("https://basic-mern-authentication.herokuapp.com/user", {
           withCredentials: true,
         })
