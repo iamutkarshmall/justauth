@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios
+        await axios
           .get("https://basic-mern-authentication.herokuapp.com/user", {
             withCredentials: true,
           })
