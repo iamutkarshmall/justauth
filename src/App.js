@@ -12,20 +12,24 @@ const App = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://basic-mern-authentication.herokuapp.com/user", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        setUsername(res.data.username);
-        setEmail(res.data.email);
-      });
+    try {
+      axios
+        .get("https://basic-mern-authentication.herokuapp.com/user", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUsername(res.data.username);
+          setEmail(res.data.email);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   console.log("username ", username);
 
-  const logout = () => {
-    axios
+  const logout = async () => {
+    await axios
       .post(
         "https://basic-mern-authentication.herokuapp.com/logout",
         {},

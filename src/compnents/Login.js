@@ -21,23 +21,24 @@ const Login = () => {
   const loginUser = (e) => {
     e.preventDefault();
     const data = { email, password };
-    axios
-      .post("https://basic-mern-authentication.herokuapp.com/login", data, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        if (isMounted.current) {
-          setNavigate(true);
-          user.setEmail(res.data.email);
-          setEmail("");
-          setPassword("");
-          setLoginError(false);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoginError(true);
-      });
+    try {
+      axios
+        .post("https://basic-mern-authentication.herokuapp.com/login", data, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          if (isMounted.current) {
+            setNavigate(true);
+            user.setEmail(res.data.email);
+            setEmail("");
+            setPassword("");
+            setLoginError(false);
+          }
+        });
+    } catch (error) {
+      console.log(error);
+      setLoginError(true);
+    }
   };
 
   if (navigate) {
