@@ -14,16 +14,24 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        await axios
-          .get("https://basic-mern-authentication.herokuapp.com/user", {
+        const response = await axios.get(
+          "https://basic-mern-authentication.herokuapp.com/user",
+          {
             withCredentials: true,
-          })
-          .then((res) => {
-            setUsername(res.data.username);
-            setEmail(res.data.email);
-          });
-      } catch (error) {
-        console.log(error);
+          }
+        );
+        if (response && response.data) {
+          setUsername(response.data.username);
+          setEmail(response.data.email);
+        }
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
       }
     };
     fetchUser();
@@ -31,8 +39,8 @@ const App = () => {
 
   console.log("username ", username);
 
-  const logout = async () => {
-    await axios
+  const logout = () => {
+    axios
       .post(
         "https://basic-mern-authentication.herokuapp.com/logout",
         {},
@@ -46,7 +54,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Usercontext.Provider value={{ email, username, setEmail, setUsername }}>
+      <Usercontext.Provider value={{ email, setEmail }}>
         <Router>
           <div>
             {!!email && (

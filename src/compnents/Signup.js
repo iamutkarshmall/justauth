@@ -10,12 +10,12 @@ const Signup = () => {
   const [confirmpassword, setConfirmpassword] = useState("");
   const [navigate, setNavigate] = useState(false);
 
-  const signupUser = async (e) => {
+  const signupUser = (e) => {
     e.preventDefault();
     try {
       if (confirmpassword === password) {
         const data = { username, email, password };
-        await axios.post(
+        axios.post(
           "https://basic-mern-authentication.herokuapp.com/signup",
           data,
           {

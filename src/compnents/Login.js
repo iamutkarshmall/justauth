@@ -18,11 +18,11 @@ const Login = () => {
     };
   }, []);
 
-  const loginUser = async (e) => {
+  const loginUser = (e) => {
     e.preventDefault();
     const data = { email, password };
     try {
-      await axios
+      axios
         .post("https://basic-mern-authentication.herokuapp.com/login", data, {
           withCredentials: true,
         })
