@@ -39,17 +39,20 @@ const App = () => {
 
   console.log("username ", username);
 
-  const logout = () => {
-    axios
-      .post(
+  const logout = async () => {
+    try {
+      const response = await axios.post(
         "https://basic-mern-authentication.herokuapp.com/logout",
         {},
         { withCredentials: true }
-      )
-      .then(() => {
+      );
+      if (response) {
         setEmail("");
         setUsername("");
-      });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

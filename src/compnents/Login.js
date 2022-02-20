@@ -18,26 +18,26 @@ const Login = () => {
     };
   }, []);
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
     const data = { email, password };
     try {
-      axios
-        .post("https://basic-mern-authentication.herokuapp.com/login", data, {
+      const response = await axios.post(
+        "https://basic-mern-authentication.herokuapp.com/login",
+        data,
+        {
           withCredentials: true,
-        })
-        .then((res) => {
-          if (isMounted.current) {
-            setNavigate(true);
-            user.setEmail(res.data.email);
-            setEmail("");
-            setPassword("");
-            setLoginError(false);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        }
+      );
+      if (response && response.data) {
+        if (isMounted.current) {
+          setNavigate(true);
+          user.setEmail(response.data.email);
+          setEmail("");
+          setPassword("");
+          setLoginError(false);
+        }
+      }
     } catch (error) {
       console.log(error);
       setLoginError(true);
