@@ -1,4 +1,4 @@
-import { React, useState, useContext, useRef, useEffect } from "react";
+import { React, useState, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import Usercontext from "./Usercontext";
 import axios from "axios";
@@ -9,14 +9,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
   const [navigate, setNavigate] = useState(false);
-  const isMounted = useRef(true);
+  // const isMounted = useRef(true);
   const user = useContext(Usercontext);
 
-  useEffect(() => {
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     isMounted.current = false;
+  //   };
+  // }, []);
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -30,13 +30,13 @@ const Login = () => {
         }
       );
       if (response && response.data) {
-        if (isMounted.current) {
-          setNavigate(true);
-          user.setEmail(response.data.email);
-          setEmail("");
-          setPassword("");
-          setLoginError(false);
-        }
+        // if (isMounted.current) {
+        user.setEmail(response.data.email);
+        setEmail("");
+        setPassword("");
+        setLoginError(false);
+        setNavigate(true);
+        // }
       }
     } catch (error) {
       console.log(error);
