@@ -15,19 +15,25 @@ const Signup = () => {
     try {
       if (confirmpassword === password) {
         const data = { username, email, password };
-        axios.post(
-          "https://basic-mern-authentication.herokuapp.com/signup",
-          data,
-          {
-            withCredentials: true,
-          }
-        );
-        setUsername("");
-        setEmail("");
-        setPassword("");
-        setConfirmpassword("");
-        console.log("signup success");
-        setNavigate(true);
+        axios
+          .post(
+            "https://basic-mern-authentication.herokuapp.com/signup",
+            data,
+            {
+              withCredentials: true,
+            }
+          )
+          .then((response) => {
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setConfirmpassword("");
+            console.log("signup success");
+            setNavigate(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } catch (error) {
       console.log(error);

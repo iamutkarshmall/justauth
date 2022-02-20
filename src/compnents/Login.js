@@ -34,6 +34,9 @@ const Login = () => {
             setPassword("");
             setLoginError(false);
           }
+        })
+        .catch((err) => {
+          console.log(err);
         });
     } catch (error) {
       console.log(error);
