@@ -22,13 +22,9 @@ const Login = () => {
     e.preventDefault();
     const data = { email, password };
     try {
-      const response = await axios.post(
-        "https://basic-mern-authentication.herokuapp.com/login",
-        data,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post("/login", data, {
+        withCredentials: true,
+      });
       if (response && response.data) {
         // if (isMounted.current) {
         user.setEmail(response.data.email);

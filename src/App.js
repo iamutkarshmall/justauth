@@ -14,12 +14,9 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(
-          "https://basic-mern-authentication.herokuapp.com/user",
-          {
-            withCredentials: true,
-          }
-        );
+        const response = await axios.get("/user", {
+          withCredentials: true,
+        });
         if (response && response.data) {
           setUsername(response.data.username);
           setEmail(response.data.email);
@@ -42,7 +39,7 @@ const App = () => {
   const logout = async () => {
     try {
       const response = await axios.post(
-        "https://basic-mern-authentication.herokuapp.com/logout",
+        "/logout",
         {},
         { withCredentials: true }
       );

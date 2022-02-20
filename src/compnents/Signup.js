@@ -16,7 +16,7 @@ const Signup = () => {
       const data = { username, email, password };
       try {
         const response = await axios.post(
-          "https://basic-mern-authentication.herokuapp.com/signup",
+          "/signup",
           data,
           {
             withCredentials: true,
