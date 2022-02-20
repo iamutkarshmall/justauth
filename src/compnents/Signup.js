@@ -11,31 +11,33 @@ const Signup = () => {
   const [navigate, setNavigate] = useState(false);
 
   const signupUser = async (e) => {
-    e.preventDefault();
-    if (confirmpassword === password) {
-      const data = { username, email, password };
-      try {
-        const response = await axios.post(
-          "https://basic-mern-authentication.herokuapp.com/signup",
-          data,
-          {
-            withCredentials: true,
+    setTimeout(() => {
+      e.preventDefault();
+      if (confirmpassword === password) {
+        const data = { username, email, password };
+        try {
+          const response = await axios.post(
+            "https://basic-mern-authentication.herokuapp.com/signup",
+            data,
+            {
+              withCredentials: true,
+            }
+          );
+          if (response) {
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setConfirmpassword("");
+            setNavigate(true);
+            console.log("signup success");
           }
-        );
-        if (response) {
-          setUsername("");
-          setEmail("");
-          setPassword("");
-          setConfirmpassword("");
-          setNavigate(true);
-          console.log("signup success");
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        alert("password mismatch");
       }
-    } else {
-      alert("password mismatch");
-    }
+    }, 3000);
   };
 
   if (navigate) {
