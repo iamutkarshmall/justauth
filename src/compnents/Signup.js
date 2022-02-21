@@ -20,7 +20,6 @@ const Signup = () => {
             withCredentials: true,
           })
           .then(() => {
-            setNavigate(true);
             setUsername("");
             setEmail("");
             setPassword("");
@@ -30,6 +29,7 @@ const Signup = () => {
           .catch((error) => {
             console.log(error);
           });
+        setNavigate(true);
       } catch (error) {
         console.log(error);
       }
