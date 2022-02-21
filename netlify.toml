@@ -1,28 +1,26 @@
 [[redirects]]
-  from = "/signup"
+  from = "/api/signup"
   to = "https://basic-mern-authentication.herokuapp.com/signup"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/login"
+  from = "/api/login"
   to = "https://basic-mern-authentication.herokuapp.com/login"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/user"
+  from = "/api/user"
   to = "https://basic-mern-authentication.herokuapp.com/user"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/logout"
+  from = "/api/logout"
   to = "https://basic-mern-authentication.herokuapp.com/logout"
   status = 200
   force = true
-
-
 
 [[redirects]]
   from = "/*"
