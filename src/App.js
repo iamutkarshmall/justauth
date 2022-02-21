@@ -63,11 +63,14 @@ const App = () => {
   }, []);
 
   return loading ? (
-    <BounceLoader size={100} style={{ flex: 1 }} loading />
+    <div class="spinner">
+      <BounceLoader size={100} loading />
+    </div>
   ) : (
     <div className="App">
       <Usercontext.Provider value={{ email, setEmail }}>
         <Router>
+          <br />
           <div>
             {!!email && (
               <div>
@@ -78,11 +81,7 @@ const App = () => {
             )}
           </div>
           <br />
-          {!!email && (
-            <nav>
-              <Link to="/">Home</Link>
-            </nav>
-          )}
+          {!!email && <nav></nav>}
           <br />
           <br />
           <Routes>
