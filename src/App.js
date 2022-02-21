@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import Home from "./compnents/Home";
 import Signup from "./compnents/Signup";
 import Login from "./compnents/Login";
+import { BounceLoader } from "react-spinners";
 import Usercontext from "./compnents/Usercontext";
+
 import axios from "axios";
 
 const App = () => {
@@ -54,6 +56,16 @@ const App = () => {
 
   return (
     <div className="App">
+      <BounceLoader
+        size={100}
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+        loading
+      />
       <Usercontext.Provider value={{ email, setEmail }}>
         <Router>
           <div>
