@@ -18,14 +18,12 @@ const Signup = () => {
         const response = await axios.post("/api/signup", data, {
           withCredentials: true,
         });
-        if (response) {
-          setNavigate(true);
-          setUsername("");
-          setEmail("");
-          setPassword("");
-          setConfirmpassword("");
-          console.log("signup success");
-        }
+        setNavigate(true);
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setConfirmpassword("");
+        console.log("signup success");
       } catch (error) {
         console.log(error);
       }
