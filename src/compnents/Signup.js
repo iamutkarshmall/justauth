@@ -15,7 +15,7 @@ const Signup = () => {
     if (confirmpassword === password) {
       const data = { username, email, password };
       try {
-        await axios
+        axios
           .post("/api/signup", data, {
             withCredentials: true,
           })
