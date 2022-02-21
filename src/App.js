@@ -12,6 +12,7 @@ import axios from "axios";
 const App = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -54,18 +55,26 @@ const App = () => {
     }
   };
 
-  return (
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  return loading ? (
+    <BounceLoader
+      size={100}
+      style={{
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+      loading
+    />
+  ) : (
     <div className="App">
-      <BounceLoader
-        size={100}
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-        loading
-      />
       <Usercontext.Provider value={{ email, setEmail }}>
         <Router>
           <div>
