@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("/api/user", {
+        const response = await axios.get("/user", {
           withCredentials: true,
         });
         if (response && response.data) {
@@ -39,7 +39,7 @@ const App = () => {
   const logout = async () => {
     try {
       const response = await axios.post(
-        "/api/logout",
+        "/logout",
         {},
         { withCredentials: true }
       );

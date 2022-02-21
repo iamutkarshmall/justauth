@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/signup"
+  to = "https://basic-mern-authentication.herokuapp.com/signup"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "https://basic-mern-authentication.herokuapp.com/login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/user"
+  to = "https://basic-mern-authentication.herokuapp.com/user"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/logout"
+  to = "https://basic-mern-authentication.herokuapp.com/logout"
+  status = 200
+  force = true
+
