@@ -19,7 +19,7 @@ const Signup = () => {
           .post("/api/signup", data, {
             withCredentials: true,
           })
-          .then((response) => {
+          .then(() => {
             setNavigate(true);
             setUsername("");
             setEmail("");
