@@ -19,11 +19,11 @@ const Signup = () => {
           withCredentials: true,
         });
         if (response) {
+          setNavigate(true);
           setUsername("");
           setEmail("");
           setPassword("");
           setConfirmpassword("");
-          setNavigate(true);
           console.log("signup success");
         }
       } catch (error) {
