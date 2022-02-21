@@ -10,20 +10,26 @@ const Signup = () => {
   const [confirmpassword, setConfirmpassword] = useState("");
   const [navigate, setNavigate] = useState(false);
 
-  const signupUser = async (e) => {
+  const signupUser = (e) => {
     e.preventDefault();
     if (confirmpassword === password) {
       const data = { username, email, password };
       try {
-        const response = await axios.post("/api/signup", data, {
-          withCredentials: true,
-        });
-        setNavigate(true);
-        setUsername("");
-        setEmail("");
-        setPassword("");
-        setConfirmpassword("");
-        console.log("signup success");
+        await axios
+          .post("/api/signup", data, {
+            withCredentials: true,
+          })
+          .then((response) => {
+            setNavigate(true);
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setConfirmpassword("");
+            console.log("signup success");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } catch (error) {
         console.log(error);
       }
