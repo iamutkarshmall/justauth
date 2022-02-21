@@ -59,20 +59,11 @@ const App = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
   }, []);
 
   return loading ? (
-    <BounceLoader
-      size={100}
-      style={{
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-      }}
-      loading
-    />
+    <BounceLoader size={100} style={{ flex: 1 }} loading />
   ) : (
     <div className="App">
       <Usercontext.Provider value={{ email, setEmail }}>
