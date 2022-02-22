@@ -63,7 +63,7 @@ const App = () => {
   }, []);
 
   return loading ? (
-    <div class="spinner">
+    <div className="spinner">
       <BounceLoader size={100} loading />
     </div>
   ) : (
